@@ -6,7 +6,8 @@ import time
 
 coin_name = [
 'Terra(Luna)','Uniswap', 'ChainLink', 'Dai', 'cEth', 'Lido Staked Ether (STETH)', 'PancakeSwap (CAKE)', 'cDAI (CDAI)', 'The Graph (GRT)', 
-'Aave (AAVE)', 'cUSDC (CUSDC)', 'Olympus (OHM)', 'Amp (AMP)', 'Maker (MKR)', 'Sushi (SUSHI)', 'Compound (COMP)', 'Synthetix Network Token (SNX)', 
+'Aave (AAVE)', 'cUSDC (CUSDC)', 'Olympus (OHM)', 'Amp (AMP)', 'Maker (MKR)', 'Sushi (SUSHI)', 'Compound (COMP)',
+ 'Synthetix Network Token (SNX)', 
 'Magic Internet Money (MIM)','dYdX (DYDX)', 'yearn.finance (YFI)','Curve DAO Token (CRV)', 'renBTC (RENBTC)', 'Spell Token (SPELL)', 'REN (REN)',
 'Nexus Mutual (NXM)',
  'Perpetual Protocol (PERP)', 'Serum (SRM)', 'Bancor Network Token (BNT)', 'xSUSHI (XSUSHI)', '0x (ZRX)', 'Raydium (RAY)', 'UMA (UMA)', 
@@ -17,7 +18,8 @@ coin_name = [
 
 coin_abv = [
 'Luna','Uniswap', 'ChainLink', 'Dai', 'cEth', 'STETH', 'CAKE', 'CDAI', 'GRT', 
-'AAVE', 'CUSDC', 'OHM', 'AMP', 'MKR', 'SUSHI', 'COMP', 'SNX', 
+'AAVE', 'CUSDC', 'OHM', 'AMP', 'MKR', 'SUSHI', 'COMP',
+ 'SNX', 
 'MIM','DYDX', 'YFI','CRV', 'RENBTC', 'SPELL', 'REN',
 'NXM',
 'PERP', 'SRM', 'BNT', 'XSUSHI', 'ZRX', 'RAY', 'UMA', 
@@ -94,44 +96,45 @@ def  to_num(string):
         no_comma = no_dolla.replace(',', '')
     return float(no_comma)
 
-def create(name, url, abv):
+def create():
 
-    source = requests.get(url).text
-
-    soup = BeautifulSoup(source, 'lxml')
-
-    table= soup.find('tbody')
-    data_objects = table.find_all('tr')
-
-    csv_file = open(f'{name}.csv', 'w')
+    csv_file = open('stack.csv', 'w')
     csv_writer = csv.writer(csv_file)
-    csv_writer.writerow(['Symbol','Date', 'Market Cap', 'Volume', 'Open', 'Close'])
+    csv_writer.writerow(['Name','Symbol','Date', 'Market Cap', 'Volume', 'Open', 'Close'])
 
+    for i in range(len(coin_name)):
+    # for i in range(2):
 
-    for container in range(len(data_objects)):
+        source = requests.get(coin_links[i]).text
 
-        first_row = data_objects[container]
-        fin_data = first_row.find_all('td', class_='text-center')
+        soup = BeautifulSoup(source, 'lxml')
 
-        date = remove(first_row.th.text)
-        market_cap = to_num(fin_data[0].text)
-        volume = to_num(fin_data[1].text)
-        open_price = to_num(fin_data[2].text)
-        close_pice = to_num(fin_data[3].text)
-        coin_abv = abv
+        table= soup.find('tbody')
+        data_objects = table.find_all('tr')
 
-        csv_writer.writerow([coin_abv, date, market_cap, volume, open_price, close_pice])
+        for container in range(len(data_objects)):
+
+            first_row = data_objects[container]
+            fin_data = first_row.find_all('td', class_='text-center')
+
+            date = remove(first_row.th.text)
+            market_cap = to_num(fin_data[0].text)
+            volume = to_num(fin_data[1].text)
+            open_price = to_num(fin_data[2].text)
+            close_pice = to_num(fin_data[3].text)
+            coin = coin_abv[i]
+            name = coin_name[i]
+
+            csv_writer.writerow([name,coin, date, market_cap, volume, open_price, close_pice])
+
+        print(name)
+        time.sleep(10)
 
     csv_file.close()
-    print(name)
-
     return 0
 
 if __name__ == '__main__':
-
     if len(coin_name) == len(coin_links) and len(coin_name) == len(coin_abv):
-        for i in range(len(coin_name)):
-            create(coin_name[i], coin_links[i], coin_abv[i])
-            time.sleep(2)
+        create()
     else: 
         print('arrays dont match up')

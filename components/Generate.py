@@ -8,7 +8,23 @@ import pandas as pd;
 import os;
 
 
-def gen_table(dataframe, max_rows=10):
+def gen_time_series(df):
+    return html.Div([
+    dcc.Dropdown(
+        id="ticker",
+        options=[{"label": x, "value": x} 
+                 for x in df.columns[1:]],
+        value=df.columns[1],
+        clearable=False,
+    ),
+    dcc.Graph(id="time-series-chart"),
+
+    html.Div([
+    html.H4(children='stock data'),
+    gen_table(df)]),
+])
+
+def gen_table(dataframe, max_rows=20):
     return html.Table([
         html.Thead(
             html.Tr([html.Th(col) for col in dataframe.columns])

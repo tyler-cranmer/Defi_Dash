@@ -3,10 +3,11 @@ from dash import dcc, html;
 from dash.dependencies import Input, Output
 # import plotly.graph_objects as go
 import plotly.express as px
-from components.Generate import gen_table, gen_dropDown
+from components.Generate import gen_table, gen_dropDown;
+import pandas as pd;
 
 
-df = px.data.stocks()
+df = pd.read_csv('/Users/tylercranmer/Dev/DeFi_Dash/allData/price.csv')
 
 app = dash.Dash(__name__)
 
@@ -31,7 +32,7 @@ app.layout = html.Div([
     Output("time-series-chart", "figure"), 
     [Input("ticker", "value")])
 def display_time_series(ticker):
-    fig = px.line(df, x='date', y=ticker)
+    fig = px.line(df, x='Date', y=ticker)
     return fig
 
 

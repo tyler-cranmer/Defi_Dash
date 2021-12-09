@@ -5,47 +5,103 @@ import time
 
 
 coin_name = [
-# 'Terra(Luna)','Uniswap', 'ChainLink', 'Dai', 'cEth', 'Lido Staked Ether (STETH)', 'PancakeSwap (CAKE)', 'cDAI (CDAI)', 'The Graph (GRT)', 
-# 'Aave (AAVE)', 'cUSDC (CUSDC)', 'Olympus (OHM)', 'Amp (AMP)', 'Maker (MKR)', 'Sushi (SUSHI)', 'Compound (COMP)',
- 'Synthetix Network Token (SNX)', 
-'Magic Internet Money (MIM)','dYdX (DYDX)', 'yearn.finance (YFI)','Curve DAO Token (CRV)', 'renBTC (RENBTC)', 'Spell Token (SPELL)', 'REN (REN)',
+'Terra(Luna)',
+'Uniswap', 'ChainLink', 'Dai', 'cEth', 'Lido Staked Ether (STETH)', 'PancakeSwap (CAKE)', 'cDAI (CDAI)', 'The Graph (GRT)', 
+'Aave(AAVE)', 
+'cUSDC(CUSDC)', 
+'Olympus(OHM)', 'Amp(AMP)', 'Maker(MKR)', 'Sushi(SUSHI)', 'Compound(COMP)', 
+'Synthetix Network Token(SNX)', 
+'Magic Internet Money(MIM)',
+'dYdX (DYDX)', 
+'yearn.finance (YFI)','Curve DAO Token (CRV)', 'renBTC (RENBTC)', 'Spell Token (SPELL)', 'REN (REN)',
 'Nexus Mutual (NXM)',
- 'Perpetual Protocol (PERP)', 'Serum (SRM)', 'Bancor Network Token (BNT)', 'xSUSHI (XSUSHI)', '0x (ZRX)', 'Raydium (RAY)', 'UMA (UMA)', 
+ 'Perpetual Protocol (PERP)',
+  'Serum (SRM)', 
+  'Bancor Network_Token (BNT)',
+   'xSUSHI (XSUSHI)', '0x (ZRX)', 'Raydium (RAY)', 'UMA (UMA)', 
 'Coin98 (C98)', 
-'Wonderland (TIME)', 'Liquity USD (LUSD)', '1inch (1INCH)', 'Neutrino USD (USDN)', 'Loopring (LRC', 'Fei Protocol (FEI)', 'Kava (KAVA)', 'Rocket Pool (RPL)',
+'Wonderland (TIME)',
+ 'Liquity USD (LUSD)', '1inch (1INCH)', 'Neutrino USD (USDN)', 'Loopring (LRC)', 'Fei_Protocol (FEI)', 'Kava (KAVA)', 'Rocket Pool(RPL)',
 'Gnosis (GNO)', 
-'Reserve Rights Token (RSR)', 'Alpha Finance (ALPHA)', 'Frax (FRAX)', 'Convex Finance (CVX)', 'Rari Governance Token (RGT)', 'Keep Network (KEEP)', 'sETH (SETH)', 'Injective Protocol (INJ)']
+'Reserve Rights Token (RSR)', 'Alpha Finance (ALPHA)', 
+'Frax (FRAX)', 'Convex Finance (CVX)',
+ 'Rari Governance Token (RGT)', 'Keep Network (KEEP)', 'sETH (SETH)', 'Injective Protocol (INJ)',
+'Bitcoin (BTC)', 'Ethereum (ETH)'
+]
 
 coin_abv = [
-# 'Luna','Uniswap', 'ChainLink', 'Dai', 'cEth', 'STETH', 'CAKE', 'CDAI', 'GRT', 
-# 'AAVE', 'CUSDC', 'OHM', 'AMP', 'MKR', 'SUSHI', 'COMP',
- 'SNX', 
-'MIM','DYDX', 'YFI','CRV', 'RENBTC', 'SPELL', 'REN',
+'Luna',
+'Uniswap',
+'ChainLink', 
+'Dai', 
+'cEth', 
+'STETH', 
+'CAKE', 
+'CDAI', 
+'GRT', 
+'AAVE', 
+'CUSDC',
+'OHM', 
+'AMP', 
+'MKR', 
+'SUSHI', 
+'COMP', 
+'SNX', 
+'MIM',
+'DYDX', 
+'YFI',
+'CRV', 
+'RENBTC', 
+'SPELL', 
+'REN',
 'NXM',
-'PERP', 'SRM', 'BNT', 'XSUSHI', 'ZRX', 'RAY', 'UMA', 
+'PERP', 
+'SRM', 
+'BNT', 
+'XSUSHI', 
+'ZRX', 
+'RAY', 
+'UMA', 
 'C98',
-'TIME', 'LUSD', '1INCH', 'USDN', 'LRC', 'FEI', 'KAVA', 'RPL',
+'TIME', 
+'LUSD', 
+'INCH', 
+'USDN', 
+'LRC', 
+'FEI', 
+'KAVA', 
+'RPL',
 'GNO',
- 'RSR', 'ALPHA', 'FRAX', 'CVX', 'RGT', 'KEEP', 'SETH', 'INJ']
+'RSR', 
+'ALPHA', 
+'FRAX', 
+'CVX', 
+'RGT', 
+'KEEP', 
+'SETH', 
+'INJ',
+'BTC',
+'ETH'
+ ]
 
 
 coin_links = [
-# 'https://www.coingecko.com/en/coins/terra-luna/historical_data/usd?end_date=2021-10-15&start_date=2020-10-15#panel',
-# 'https://www.coingecko.com/en/coins/uniswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-# 'https://www.coingecko.com/en/coins/chainlink/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/compound-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/lido-staked-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/pancakeswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/compound-dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-# 'https://www.coingecko.com/en/coins/the-graph/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/aave/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/compound-usd-coin/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/olympus/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/amp/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-# 'https://www.coingecko.com/en/coins/maker/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/sushi/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-# 'https://www.coingecko.com/en/coins/compound/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/terra-luna/historical_data/usd?end_date=2021-10-15&start_date=2020-10-15#panel',
+'https://www.coingecko.com/en/coins/uniswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+'https://www.coingecko.com/en/coins/chainlink/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/compound-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/lido-staked-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/pancakeswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/compound-dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+'https://www.coingecko.com/en/coins/the-graph/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/aave/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/compound-usd-coin/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/olympus/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/amp/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+'https://www.coingecko.com/en/coins/maker/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/sushi/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/compound/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/synthetix-network-token/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/magic-internet-money/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/dydx/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
@@ -79,7 +135,11 @@ coin_links = [
 'https://www.coingecko.com/en/coins/rari-governance-token/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/keep-network/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/seth/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/injective-protocol/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel']
+'https://www.coingecko.com/en/coins/injective-protocol/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+'https://www.coingecko.com/en/coins/bitcoin/historical_data/usd?end_date=2021-12-09&start_date=2020-12-09#panel',
+'https://www.coingecko.com/en/coins/ethereum/historical_data/usd?end_date=2021-12-09&start_date=2020-12-09#panel'
+]
+
 
 
 
@@ -130,7 +190,7 @@ def create(name, url, abv):
     return 0
 
 if __name__ == '__main__':
-
+    csv_file = open(f'temp.csv', 'w')
     if len(coin_name) == len(coin_links) and len(coin_name) == len(coin_abv):
         for i in range(len(coin_name)):
             create(coin_name[i], coin_links[i], coin_abv[i])
