@@ -102,8 +102,8 @@ def create():
     csv_writer = csv.writer(csv_file)
     csv_writer.writerow(['Name','Symbol','Date', 'Market Cap', 'Volume', 'Open', 'Close'])
 
-    for i in range(len(coin_name)):
-    # for i in range(2):
+    # for i in range(len(coin_name)):
+    for i in range(2):
 
         source = requests.get(coin_links[i]).text
 
@@ -118,14 +118,17 @@ def create():
             fin_data = first_row.find_all('td', class_='text-center')
 
             date = remove(first_row.th.text)
-            market_cap = to_num(fin_data[0].text)
-            volume = to_num(fin_data[1].text)
-            open_price = to_num(fin_data[2].text)
-            close_pice = to_num(fin_data[3].text)
-            coin = coin_abv[i]
-            name = coin_name[i]
 
-            csv_writer.writerow([name,coin, date, market_cap, volume, open_price, close_pice])
+            if (date == '2020-10-17' or '2020-11-30'):
+                print(date)
+                market_cap = to_num(fin_data[0].text)
+                volume = to_num(fin_data[1].text)
+                open_price = to_num(fin_data[2].text)
+                close_pice = to_num(fin_data[3].text)
+                coin = coin_abv[i]
+                name = coin_name[i]
+
+                csv_writer.writerow([name,coin, date, market_cap, volume, open_price, close_pice])
 
         print(name)
         time.sleep(10)

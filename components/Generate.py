@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 import dash;
-from dash import dcc;
+from dash import dcc, dash_table;
 from dash import html;
 from dash.dependencies import Input, Output;
 import plotly.express as px;
 import pandas as pd;
 import os;
+from collections import OrderedDict
 
 
 def gen_time_series(df):
@@ -18,39 +19,39 @@ def gen_time_series(df):
         clearable=False,
     ),
     dcc.Graph(id="time-series-chart"),
-
-    html.Div([
-    html.H4(children='stock data'),
-    gen_table(df)]),
 ])
 
-def gen_table(dataframe, max_rows=20):
-    return html.Table([
-        html.Thead(
-            html.Tr([html.Th(col) for col in dataframe.columns])
-        ),
-        html.Tbody([
-            html.Tr([
-                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-            ]) for i in range(min(len(dataframe), max_rows))
-        ])
+
+def gen_table(dataframe):
+
+    data = OrderedDict(dataframe)
+    df = pd.DataFrame(
+    OrderedDict([(name, col_data * 10) for (name, col_data) in data.items()])
+)
+
+    return html.Div([
+    html.H4(children='Data Frame'),
+    dash_table.DataTable(
+    columns=[{"name": i, "id": i} for i in dataframe.columns],
+    data=dataframe.to_dict('records'),
+    page_size=10
+)
     ])
 
 
-def gen_dropDown():
-    return html.Div([  
-        html.Label("Choose Crypto Coin"),  
-        dcc.Dropdown(
-        id = 'coin dropdown',
-        options = [
-            {'label' : 'Maker', 'value': 'MKR'},
-            {'label' : '0x', 'value': 'ZRX'},
-            {'label' : '1inch', 'value': '1INCH'},
-            {'label' : 'Aave', 'value': 'AAVE'},
-            {'label' : 'Alpha Finance', 'value': 'ALPHA'},
-            {'label' : 'Amp', 'value': 'AMP'},
-            {'label' : 'Bancor Network Token', 'value': 'BNT'},
-            {'label' : 'cDAI', 'value': 'CDAI'},
-        ],
-        value='MKR'
-    )])
+def gen_stack(df):
+    tokens = (df.Name.drop_duplicates().sample(n=5, random_state=5))
+    df = df[df.Name.isin(tokens)]
+
+    return html.Div([
+    html.P("Select y-axis"),
+    dcc.Dropdown(
+        id='y-axis',
+        options=[
+            {'label': x, 'value': x} 
+            for x in ['Total Volume', 'Market Cap', 'oPrice']],
+        value='Market Cap'
+    ),
+    dcc.Graph(id="graph")
+
+])
