@@ -5,8 +5,9 @@ import time
 
 
 coin_name = [
-'Terra(Luna)','Uniswap', 'ChainLink', 'Dai', 'cEth', 'Lido Staked Ether (STETH)', 'PancakeSwap (CAKE)', 'cDAI (CDAI)', 'The Graph (GRT)', 
-'Aave (AAVE)', 'cUSDC (CUSDC)', 'Olympus (OHM)', 'Amp (AMP)', 'Maker (MKR)', 'Sushi (SUSHI)', 'Compound (COMP)', 'Synthetix Network Token (SNX)', 
+# 'Terra(Luna)','Uniswap', 'ChainLink', 'Dai', 'cEth', 'Lido Staked Ether (STETH)', 'PancakeSwap (CAKE)', 'cDAI (CDAI)', 'The Graph (GRT)', 
+# 'Aave (AAVE)', 'cUSDC (CUSDC)', 'Olympus (OHM)', 'Amp (AMP)', 'Maker (MKR)', 'Sushi (SUSHI)', 'Compound (COMP)',
+ 'Synthetix Network Token (SNX)', 
 'Magic Internet Money (MIM)','dYdX (DYDX)', 'yearn.finance (YFI)','Curve DAO Token (CRV)', 'renBTC (RENBTC)', 'Spell Token (SPELL)', 'REN (REN)',
 'Nexus Mutual (NXM)',
  'Perpetual Protocol (PERP)', 'Serum (SRM)', 'Bancor Network Token (BNT)', 'xSUSHI (XSUSHI)', '0x (ZRX)', 'Raydium (RAY)', 'UMA (UMA)', 
@@ -16,8 +17,9 @@ coin_name = [
 'Reserve Rights Token (RSR)', 'Alpha Finance (ALPHA)', 'Frax (FRAX)', 'Convex Finance (CVX)', 'Rari Governance Token (RGT)', 'Keep Network (KEEP)', 'sETH (SETH)', 'Injective Protocol (INJ)']
 
 coin_abv = [
-'Luna','Uniswap', 'ChainLink', 'Dai', 'cEth', 'STETH', 'CAKE', 'CDAI', 'GRT', 
-'AAVE', 'CUSDC', 'OHM', 'AMP', 'MKR', 'SUSHI', 'COMP', 'SNX', 
+# 'Luna','Uniswap', 'ChainLink', 'Dai', 'cEth', 'STETH', 'CAKE', 'CDAI', 'GRT', 
+# 'AAVE', 'CUSDC', 'OHM', 'AMP', 'MKR', 'SUSHI', 'COMP',
+ 'SNX', 
 'MIM','DYDX', 'YFI','CRV', 'RENBTC', 'SPELL', 'REN',
 'NXM',
 'PERP', 'SRM', 'BNT', 'XSUSHI', 'ZRX', 'RAY', 'UMA', 
@@ -28,22 +30,22 @@ coin_abv = [
 
 
 coin_links = [
-'https://www.coingecko.com/en/coins/terra-luna/historical_data/usd?end_date=2021-10-15&start_date=2020-10-15#panel',
-'https://www.coingecko.com/en/coins/uniswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-'https://www.coingecko.com/en/coins/chainlink/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/compound-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/lido-staked-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/pancakeswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/compound-dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-'https://www.coingecko.com/en/coins/the-graph/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/aave/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/compound-usd-coin/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/olympus/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/amp/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
-'https://www.coingecko.com/en/coins/maker/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/sushi/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
-'https://www.coingecko.com/en/coins/compound/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/terra-luna/historical_data/usd?end_date=2021-10-15&start_date=2020-10-15#panel',
+# 'https://www.coingecko.com/en/coins/uniswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+# 'https://www.coingecko.com/en/coins/chainlink/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/compound-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/lido-staked-ether/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/pancakeswap/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/compound-dai/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+# 'https://www.coingecko.com/en/coins/the-graph/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/aave/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/compound-usd-coin/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/olympus/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/amp/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel', 
+# 'https://www.coingecko.com/en/coins/maker/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/sushi/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
+# 'https://www.coingecko.com/en/coins/compound/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/synthetix-network-token/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/magic-internet-money/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
 'https://www.coingecko.com/en/coins/dydx/historical_data/usd?end_date=2021-10-16&start_date=2020-10-16#panel',
